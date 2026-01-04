@@ -3,14 +3,33 @@
 # ============================================
 # Ghidra Project Files (Binary/Generated)
 # ============================================
+# Exclude binary Ghidra database files (can be hundreds of MB)
 *.gbf
+
+# Exclude Ghidra project metadata files (binary/XML)
 *.prp
 project.prp
+
+# Exclude project state files (binary)
 projectState
-*.rep/
+
+# Exclude other Ghidra binary formats
 *.gzf
 *.grf
 *.crf
+
+# ============================================
+# Exception: Include ACTIVTRAK_ATTACK.rep/ folder entirely
+# ============================================
+# The user wants to include this specific project folder with all binaries
+# Force include the entire folder structure and all file types within it
+!ACTIVTRAK_ATTACK.rep/
+!ACTIVTRAK_ATTACK.rep/**
+!ACTIVTRAK_ATTACK.rep/**/
+!ACTIVTRAK_ATTACK.rep/**/*.gbf
+!ACTIVTRAK_ATTACK.rep/**/*.prp
+!ACTIVTRAK_ATTACK.rep/project.prp
+!ACTIVTRAK_ATTACK.rep/projectState
 
 # ============================================
 # Binary Executables and Libraries

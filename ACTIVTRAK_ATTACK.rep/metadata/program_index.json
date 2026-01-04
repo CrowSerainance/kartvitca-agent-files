@@ -1,0 +1,57 @@
+[
+  {
+    "name": "BGStart.exe",
+    "type": "Program",
+    "file_id": "c0a812a7c78e2551164125100"
+  },
+  {
+    "name": "atutil.exe",
+    "type": "Program",
+    "file_id": "c0a812a7c2232491059631100"
+  },
+  {
+    "name": "conmhost.exe",
+    "type": "Program",
+    "file_id": "c0a812a7c78f2555727593900"
+  },
+  {
+    "name": "diagnostics_app.exe",
+    "type": "Program",
+    "file_id": "c0a812a7f0052507129326600"
+  },
+  {
+    "name": "log_capture_app.exe",
+    "type": "Program",
+    "file_id": "c0a812a7f0062511900864200"
+  },
+  {
+    "name": "scthost.exe",
+    "type": "Program",
+    "file_id": "c0a812a7caea2350490525700"
+  },
+  {
+    "name": "scthosth.dll",
+    "type": "Program",
+    "file_id": "c0a812a7fbfc4560432570300"
+  },
+  {
+    "name": "scthosti.exe",
+    "type": "Program",
+    "file_id": "c0a812a7caef2416764592700"
+  },
+  {
+    "name": "svctcom.exe",
+    "type": "Program",
+    "file_id": "c0a812a7e9d92468587194100"
+  },
+  {
+    "name": "svctcr.exe",
+    "type": "Program",
+    "file_id": "c0a812a7e9da2473276185800"
+  },
+  {
+    "name": "syschk.exe",
+    "type": "Program",
+    "file_id": "c0a812a7e9db2478266491500"
+  }
+]
