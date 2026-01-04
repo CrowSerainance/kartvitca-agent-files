@@ -1,0 +1,196 @@
+================================================================================
+                    PE ANALYSIS TOOLKIT - START HERE
+================================================================================
+
+⚠️  IMPORTANT DISCLAIMER - EDUCATIONAL USE ONLY  ⚠️
+
+This toolkit is for EDUCATIONAL and RESEARCH purposes ONLY.
+
+FOR LEARNING: Understand reverse engineering and software behavior
+NOT FOR: Exploiting, bypassing security, creating malware/hacks
+RESPONSIBILITY: Only analyze software you have permission to analyze
+COMPLIANCE: Respect licenses, terms of service, and applicable laws
+
+By using this toolkit, you agree to use it ethically and legally.
+
+================================================================================
+
+WHAT YOU HAVE NOW:
+==================
+
+1. pe_extractor.py       - Automated PE section extraction script
+2. README.md             - Complete overview and checklist
+3. QUICKSTART.md         - 5-minute quick start guide  
+4. ANALYSIS_GUIDE.md     - Complete step-by-step methodology
+5. BGSTART_ANALYSIS.md   - Detailed BGStart.exe analysis
+
+
+YOUR 3-STEP QUICK START:
+========================
+
+STEP 1: Extract All PE Sections (2 minutes)
+--------------------------------------------
+Open terminal and run:
+
+    cd "E:\MMORPG\Decompile"
+    python pe_extractor.py "ACTIVTRAK Agent\SourceDir\SystemFolder"
+
+This creates folders for each .exe with extracted data.
+
+
+STEP 2: Review Extracted Data (5 minutes)
+------------------------------------------
+Check what BGStart does:
+
+    type "BGStart\imports.txt"
+    type "BGStart\strings.txt" | findstr /i "config http file registry"
+    type "BGStart\metadata.txt"
+
+
+STEP 3: Continue Ghidra Analysis (30+ minutes)
+-----------------------------------------------
+In Ghidra CodeBrowser:
+
+    1. You're currently at the entry() function
+    2. Double-click on "FUN_00644de" in the decompiler window
+    3. This takes you to the MAIN program logic
+    4. Right-click on "FUN_00644de" → Edit Function Signature
+    5. Rename it to "main" or "WinMain"
+    6. Start analyzing what the function does
+
+
+UNDERSTANDING YOUR DECOMPILED CODE:
+===================================
+
+What you saw in Ghidra:
+-----------------------
+    void entry(void)
+    {
+        __security_init_cookie();  ← Security feature (buffer protection)
+        FUN_00644de();             ← THE REAL PROGRAM STARTS HERE!
+        return;
+    }
+
+What each part means:
+---------------------
+    __security_init_cookie() = Stack protection initialization
+    FUN_00644de()            = Main program logic (analyze this next!)
+
+
+GHIDRA KEYBOARD SHORTCUTS:
+==========================
+    G              = Go to address
+    L              = Rename function/variable
+    ;              = Add comment
+    Ctrl+E         = Edit function signature
+    Ctrl+Shift+F   = Search text
+    Ctrl+D         = Bookmark
+
+
+WHAT TO LOOK FOR IN FUN_00644de:
+=================================
+
+GUI Application:
+    - RegisterClassEx, CreateWindowEx
+    - Message loop (GetMessage, DispatchMessage)
+
+Background Service:
+    - StartServiceCtrlDispatcher
+    - Service control handlers
+
+Process Launcher:
+    - CreateProcess, ShellExecute
+    - Paths to other .exe files
+
+Network Activity:
+    - WSAStartup, socket, connect
+    - IP addresses in strings
+
+
+QUICK SEARCH COMMANDS:
+======================
+
+Find network strings:
+    findstr /i "http https socket connect server ip" BGStart\strings.txt
+
+Find file paths:
+    findstr /i "C:\ appdata program" BGStart\strings.txt
+
+Find registry keys:
+    findstr /i "HKEY registry software" BGStart\strings.txt
+
+
+COMPARING EXECUTABLES:
+======================
+
+Compare imports between two files:
+    fc BGStart\imports.txt scthost\imports.txt
+
+Compare strings:
+    fc BGStart\strings.txt scthost\strings.txt
+
+
+DOCUMENTATION GUIDE:
+====================
+
+For beginners       → Read QUICKSTART.md first
+For complete guide  → Read ANALYSIS_GUIDE.md  
+For BGStart details → Read BGSTART_ANALYSIS.md
+For overview        → Read README.md
+
+
+NEXT IMMEDIATE ACTIONS:
+=======================
+
+1. Run extraction script:
+   python pe_extractor.py "ACTIVTRAK Agent\SourceDir\SystemFolder"
+
+2. Review imports.txt and strings.txt
+
+3. In Ghidra: Double-click FUN_00644de to analyze main function
+
+4. Rename functions as you understand them
+
+5. Add comments to document your findings
+
+
+GETTING HELP:
+=============
+
+All questions answered in the .md files!
+
+    - How do I...?          → QUICKSTART.md
+    - What does this mean?  → ANALYSIS_GUIDE.md
+    - What is FUN_00644de?  → BGSTART_ANALYSIS.md
+
+
+SAFETY REMINDER:
+================
+
+✓ Always analyze in a VM
+✓ Take snapshots before running anything
+✓ Disable network if analyzing malware
+✓ Never run on production systems
+
+LEGAL REMINDER:
+===============
+
+⚠️  EDUCATIONAL USE ONLY - NOT FOR EXPLOITATION  ⚠️
+
+✓ Only analyze software you have permission to analyze
+✓ Respect software licenses and terms of service
+✓ Do not use knowledge to bypass security or create exploits
+✓ Comply with all applicable laws (DMCA, CFAA, etc.)
+✓ Use knowledge responsibly and ethically
+
+
+READY? START HERE:
+==================
+
+    python pe_extractor.py "ACTIVTRAK Agent\SourceDir\SystemFolder"
+
+Then open QUICKSTART.md for detailed next steps!
+
+================================================================================
+                            Good luck! 🔍
+================================================================================

@@ -1,0 +1,113 @@
+# Gitignore for Reverse Engineering/PE Analysis Project
+
+# ============================================
+# Ghidra Project Files (Binary/Generated)
+# ============================================
+*.gbf
+*.prp
+project.prp
+projectState
+*.rep/
+*.gzf
+*.grf
+*.crf
+
+# ============================================
+# Binary Executables and Libraries
+# ============================================
+*.exe
+*.dll
+*.sys
+*.bin
+*.so
+*.dylib
+
+# ============================================
+# Extracted PE Sections and Analysis Output
+# ============================================
+*.text
+*.data
+*.rdata
+*.reloc
+*.rsrc/
+imports.txt
+exports.txt
+strings.txt
+metadata.txt
+
+# ============================================
+# Python
+# ============================================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+.venv
+pip-log.txt
+pip-delete-this-directory.txt
+*.egg-info/
+dist/
+build/
+
+# ============================================
+# IDE and Editor Files
+# ============================================
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# ============================================
+# OS Files
+# ============================================
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Desktop.ini
+
+# ============================================
+# Temporary and Log Files
+# ============================================
+*.tmp
+*.temp
+*.log
+*.cache
+*.bak
+*.swp
+
+# ============================================
+# Compressed Archives (if they contain binaries)
+# ============================================
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.msi
+
+# ============================================
+# Analysis Output Folders
+# ============================================
+# Uncomment if you want to exclude extracted analysis folders
+# BGStart/
+# scthost/
+# etc.
+
+# ============================================
+# Keep These (Documentation and Scripts)
+# ============================================
+# README.md
+# *.md
+# *.py (scripts)
+# *.txt (documentation)
+
